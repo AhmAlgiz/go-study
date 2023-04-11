@@ -29,6 +29,7 @@ func (s *Stream) GetLastPackage() string {
 	return s.Data.GetPackages(1)[0]
 }
 
+// Создание пула(канала) с объектами Stream, у которых один и тот же источник данных
 func NewPool(poolCount int, sd *StreamData) *StreamPool {
 	sp := make(StreamPool, poolCount)
 	for i := 0; i < poolCount; i++ {
