@@ -12,6 +12,6 @@ func TestQuery(t *testing.T) {
 	}
 	msg := Query(conns, "test")
 	if msg == "" {
-		t.Fatalf("Empty response.%v", msg)
+		t.Fatalf("Empty or uncorrect response. Got: %v", msg)
 	}
 }

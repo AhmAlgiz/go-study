@@ -4,8 +4,8 @@ type Connection struct {
 	name string
 }
 
-func readFromDB(c Connection) string {
-	return c.name
+func readFromDB(c Connection, s string) string {
+	return c.name + s
 }
 
 func Query(connections []Connection, query string) string {
@@ -13,7 +13,7 @@ func Query(connections []Connection, query string) string {
 	for _, c := range connections {
 		go func(conn Connection) {
 			select {
-			case ch <- readFromDB(conn):
+			case ch <- readFromDB(conn, query):
 			default:
 			}
 		}(c)
