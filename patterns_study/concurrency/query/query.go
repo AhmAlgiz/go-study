@@ -1,4 +1,4 @@
-package concurrency
+package query
 
 type Connection struct {
 	name string
